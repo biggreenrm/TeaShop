@@ -83,7 +83,9 @@ class Cart:
         self.save()
     
     def remove(self, product):
-        """Removing product from cart""""
+        """
+        Removing product from cart.
+        """"
         product_id = str(product.id)
         if product_id in self.cart:
             del self.cart[product_id]
@@ -91,7 +93,7 @@ class Cart:
     
     def clear(self):
         """
-        Removing all products from cart
+        Removing all products from cart.
         """
         del self.session[settings.CART_SESSION_ID]
         self.save()
