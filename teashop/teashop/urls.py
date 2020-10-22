@@ -3,8 +3,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # in this case connection order of cart and shop is important
+    path('cart/', include('cart.urls', namespace='cart'))
     path('', include('shop.urls', namespace='shop')),
 ]
 
