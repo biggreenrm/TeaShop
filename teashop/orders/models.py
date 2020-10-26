@@ -29,7 +29,7 @@ class Orders(models.Model):
 
 class OrderItem(models.Model):
     """
-    
+    Model that binds products to orders.
     """
     
     order = models.ForeignKey(Orders,
