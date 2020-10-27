@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import OrderItem
 from .forms import OrdersCreateForm
+from .tasks import order_created
 from cart.cart import Cart
 
 
@@ -19,6 +20,8 @@ def order_create(request):
                                          quantity=item['quantity'])
             # after making an order there is no need to keep cart
             cart.clear()
+            #running async task
+            order_created.delay(order.id)
             return render(request,
                           'orders/order/created.html',
                           {'order': order})
