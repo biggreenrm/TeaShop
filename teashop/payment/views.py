@@ -5,14 +5,14 @@ import braintree
 
 def payment_process(request):
     order_id = request.session.get('order_id')
-    order = get_object_or_404(Order, id=order_id)
+    order = get_object_or_404(Orders, id=order_id)
     
     if request.method == 'POST':
         # Accepting token for transaction creating
         nonce = request.POST.get('payment_method_nonce', None) # formed in template by JS SDK
         # Creating and saving of transaction
         result = braintree.Transaction.sale({
-            'amount': '{:.2f}'.format(order.get_total_cost()),
+            'amount': '{:.2f}'.format(order.get_total_sum()),
             'payment_method_nonce': nonce,
             'options': {
                 'submit_for_settlement': True # it means that transaction will be processed automatically
