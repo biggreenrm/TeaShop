@@ -7,13 +7,7 @@ from django.utils.safestring import mark_safe
 from .models import Orders, OrderItem
 
 
-def order_detail(obj):
-    return mark_safe('<a href="{}">View</a>'.format(
-        reverse('orders:admin_order_detail', args=[obj.id])))
-
-"""
-Some unbounded actions.
-"""
+"""Some unbounded actions"""
 
 def export_to_csv(modeladmin, request, queryset):
     # get info about model
@@ -44,7 +38,21 @@ def export_to_csv(modeladmin, request, queryset):
     return response
 export_to_csv.short_description = 'Export to CSV'
 
+# This two functions works as additional buttons
+# in admin panel. They simply reverse user to actual views.
+# To show them in admin panel they need to be placed in 
+# list_display of correct ModelAdmin
+def order_detail(obj):
+    return mark_safe('<a href="{}">View</a>'.format(
+        reverse('orders:admin_order_detail', args=[obj.id])))
 
+def order_pdf(obj):
+    return mark_safe('<a href="{}">PDF</a>'.format(
+        reverse('orders:admin_order_pdf', args=[obj.id])))
+order_pdf.short_description = 'Invoice'
+
+
+"""Admin classes"""
 
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
@@ -55,7 +63,8 @@ class OrderItemInline(admin.TabularInline):
 class OrdersAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name',
                     'email', 'address', 'city',
-                    'paid', 'created', order_detail]
+                    'paid', 'created', order_detail,
+                    order_pdf]
     
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
