@@ -58,9 +58,11 @@ def admin_order_detail(request, order_id):
 @staff_member_required
 def admin_order_pdf(request, order_id):
     order = get_object_or_404(Orders, id=order_id)
+    coupon = order.coupon
     # it doesn't return response, but html as a string
     html = render_to_string('orders/order/pdf.html',
-                            {'order': order})
+                            {'order': order,
+                             'coupon': coupon})
     
     # set-up response as a downloadable pdf-file
     response = HttpResponse(content_type='application/pdf')
