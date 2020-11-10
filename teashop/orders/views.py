@@ -22,7 +22,11 @@ def order_create(request):
     if request.method == 'POST':
         form = OrdersCreateForm(request.POST)
         if form.is_valid():
-            order = form.save()
+            order = form.save(commit=False) # create model's object without saving to db
+            if cart.coupon:
+                order.coupon = cart.coupon
+                order.discount = cart.coupon.discount
+            order.save()
             # bind every item in cart to customers order
             # information is get from cart also
             for item in cart:
