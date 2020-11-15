@@ -1,0 +1,40 @@
+version: '3.7'
+
+services: 
+  web:
+    build: ./teashop
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./teashop/:/project/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+    
+  celery:
+    build: ./teashop
+    command: celery -A myshop worker -l info
+    volumes:
+      - ./teashop/:/project/
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - web
+      - rabbitmq
+
+  dashboard:
+    build: ./teashop
+    command: celery -A myshop flower
+    ports: 5555:5555
+    env_file:
+      - ./.env.dev
+    depends_on: 
+      - web
+      - celery
+      - rabbitmq
+  
+  rabbitmq:
+    image: rabbitmq:3.8.9
+
+
+  
