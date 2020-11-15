@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-15 17:15+0300\n"
+"POT-Creation-Date: 2020-11-15 18:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: orders/models.py:17
 msgid "first name"
 msgstr "nombre"
@@ -40,3 +41,27 @@ msgstr "código postal"
 #: orders/models.py:22
 msgid "city"
 msgstr "ciudad"
+
+#: orders/templates/orders/order/create.html:7
+msgid "Checkout"
+msgstr "Revisa"
+
+#: orders/templates/orders/order/create.html:9
+msgid "Your order"
+msgstr "Su pedido"
+
+#: orders/templates/orders/order/create.html:26
+msgid "Total"
+msgstr "Total"
+
+#: orders/templates/orders/order/create.html:30
+msgid "Place order"
+msgstr "Realizar pedido"
+
+#: orders/templates/orders/order/created.html:7
+msgid "Thank You"
+msgstr "Gracias"
+
+#: orders/templates/orders/order/created.html:8
+msgid "Your order has been successfully completed. Your order number is"
+msgstr "Su orden ha sido completada satisfactoriamente. Tu numero de orden es"
