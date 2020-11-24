@@ -25,4 +25,7 @@ If you run app first time - firstly make migrations.
 
 ## Features
 
+This is a main page of TeaShop. It provides opportunities to change sorts of tea (groups), open selected tea details and also the link to the customer's cart.
 ![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/main_screen.png)
+
+
