@@ -52,7 +52,10 @@ After clicking on checkout button customer will land to the page with checkout f
 
 
 In this project I use BrainTree payment system (Uber's partner). It is customizable, easy to setting up, but my favourite opportunity is their sandbox. It means that me as a developer don't need to connect my bank account or get through difficult procces of binding application with it to simply try this system out and test it.
+
 ![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/payment_braintree.png)
+
 ![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/result.png)
+
 
 In this moment I finished with cutomer's side features and want to represent the administration features (business side features). 
