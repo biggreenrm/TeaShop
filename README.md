@@ -24,6 +24,7 @@ python manage.py runserver
 If you run app first time - firstly make migrations.
 
 ## Features
+### Features for customers
 
 This is a main page of TeaShop. It provides opportunities to change sorts of tea (groups), open selected tea details and also the link to the customer's cart.
 
@@ -58,4 +59,17 @@ In this project I use BrainTree payment system (Uber's partner). It is customiza
 ![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/result.png)
 
 
-In this moment I finished with cutomer's side features and want to represent the administration features (business side features). 
+In this moment I finished with cutomer's side features and want to represent the administration features (business side features).
+
+### Features for business (administration)
+
+After end of payment, it is necessary to sent email to customer with all information about order and its status. This project use best practice for it - Celery as a distributed task queue. It gives an ability to send email in background and eliminates need for user to wait for the end of this operation. In case of any trouble, if there is an error while sending message, Celery will try to resend it until it works. Celery also can be used for any tasks (especially in area of business logic), running which in backround can reduce time of users waiting and doing nothing. 
+TeaShop uses RabbitMQ as a broker between application and Celery.
+Example of sended message (shown in terminal, but easily can be configured to work with SMTP).
+
+![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/celery_worker.png)
+
+
+All businesses need a paper document flow, so TeaShop web-application automatically generates invoice in pdf-format, that can be printed or used in any way. 
+
+![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/invoice.png)
