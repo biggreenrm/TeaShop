@@ -73,3 +73,17 @@ Example of sended message (shown in terminal, but easily can be configured to wo
 All businesses need a paper document flow, so TeaShop web-application automatically generates invoice in pdf-format, that can be printed or used in any way. 
 
 ![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/invoice.png)
+
+
+Document flow also needs a common view of all orders (or selected queue). In this case I add feature that write down selected orders in csv file.
+
+![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/export_csv.png)
+
+Result looks like this:
+
+![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/csv.png)
+
+
+
+## Project status
+Work on new features
