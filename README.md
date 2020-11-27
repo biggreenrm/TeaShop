@@ -86,6 +86,8 @@ Result looks like this:
 
 ![Alt text](https://github.com/biggreenrm/TeaShop/blob/master/readme_screenshots/csv.png)
 
+## Tech-stack
+Django, Celery, Flower, pdfrw, WeasyPrint, RabbitMQ, Docker, SQLite.
 
 ## Summary
 TeaShop is a good example of how to use Django to build stable and scalable basic shop with wide functionality for all needs of small and medium business. It uses popular techologies, so you don't need to worry about updates and support in case you decide to integrate some new features. 
